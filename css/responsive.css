@@ -1,0 +1,66 @@
+@media screen and (min-width: 480px) {
+
+  h1 {
+    font-size: 2.8em;
+  }
+  h2 {
+    font-size: 1.8em;
+  }
+  p {
+    font-size: 1.3em;
+  }
+  input {
+    font-size: 1.1em;
+  }
+  .navigation li {
+    font-size: 1.4em;
+  }
+  .box {
+    width:70%;
+    margin: 10px 15%;
+  }
+  .box .calc {
+    font-size: 1.1em;
+  }
+  .profile-pic {
+    width: 30%;
+    margin: 15px 35%;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .box {
+    margin:10px 0 0 5%;
+    max-width: 42.5%;
+    float:left;
+  }
+  .navigation {
+    background: none;
+    float:right;
+    margin: 10px 5px 0;
+  }
+  .navigation li {
+    padding: 2px;
+    border: 2px solid #006699;
+    border-bottom-style: none;
+  }
+  #logo {
+    float:left;
+    padding: 1px;
+    margin:0;
+
+  }
+  header {
+    height:40px;
+    padding: 5px;
+    border-bottom: 10px solid #006699;
+  }
+  .profile-pic {
+    width: 20%;
+    margin: 15px 40%;
+  }
+  #contact {
+    text-align: center;
+  }
+
+}

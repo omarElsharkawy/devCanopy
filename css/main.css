@@ -1,0 +1,250 @@
+/*General*/
+
+* {
+  margin:0;
+  padding:0;
+}
+body {
+  background-image: url('../img/mbg.jpg');
+}
+
+a {
+  text-decoration:none;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+h2 {
+  font-size: 1.5em;
+}
+p {
+  font-size: 1em;
+}
+input {
+  font-size: 0.9em;
+
+}
+/*============================
+            Header
+==============================*/
+header {
+  background: #0099cc;
+  opacity: 0.95;
+  text-align: center;
+}
+
+
+header a:visited {
+    color: #fff;
+}
+
+#logo {
+  padding: 10px 0;
+  color: #fff;
+  font-family: 'Bangers', cursive;
+}
+
+/*================================
+        Navigation
+==================================*/
+
+.navigation {
+  background: #006699;
+  opacity: 0.95
+}
+
+.navigation li {
+  display: inline-block;
+  padding: 5px 0;
+  margin: 0 5px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.navigation a:hover {
+  background: yellow;
+  padding: 3px 0;
+}
+/*============================
+            Section
+==============================*/
+/*SubHeaders*/
+.SubHeader {
+  display: block;
+  background: #000c1a;
+  opacity: 0.9;
+  padding: 5%;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  clear: both;
+}
+
+/*Boxes*/
+.box {
+  background: #fff;
+  opacity:0.8;
+  border-bottom: 2px solid grey;
+  border-radius: 4px;
+  width:90%;
+  margin: 5px 5%;
+  padding:5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.box .selector {
+  width:60%;
+  margin: 10px 20%;
+}
+
+.box h3 {
+  margin: 5px 0;
+  text-align: center;
+}
+
+.box .calc {
+  margin-left: 10px ;
+  font-size: 1.1em;
+}
+
+.box .calc div {
+  margin: 2px 0;
+}
+
+.output {
+  background: #ffff4d;
+  font-style: italic;
+  color: #cc0000;
+
+}
+
+#myTable {
+  background: #000;
+  margin: 2% 5%;
+  max-width: 90%;
+}
+
+#myTable td {
+  background: #fff;
+  text-align: center;
+  font-size: 1em;
+  color:#cc0000;
+  padding: 3px;
+}
+/*Canvases*/
+#myCanvas {
+  width:90%;
+  margin: 5px 5%;
+  border: 1px solid #bfbfbf;
+}
+
+#myImg {
+  width:90%;
+  margin: 5px 5%;
+  border: 2px solid #0099cc;
+}
+
+/*About Me*/
+.profile-pic {
+  width: 70%;
+  margin: 15px 15%;
+  border: 2px solid #cc0000;
+  border-radius: 100%;
+}
+#about {
+  margin:  0;
+  padding: 2%;
+}
+
+/*Contact*/
+#contact {
+  background: #fff;
+  opacity: 0.7;
+  padding: 5%;
+}
+
+#contact a {
+  display:inline-block;
+  margin-left: 5%;
+}
+
+/*========================
+        Footer
+==========================*/
+footer p {
+  float:right;
+  clear: both;
+  display:block;
+}
+
+
+/*========================
+        Buttons
+==========================*/
+
+.button {
+  display: block;
+  text-align: center;
+  font-family: 'Bangers',Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
+  color: #fff;
+  background-color: #0099cc;
+  width: 70%;
+  height: 30px;
+  margin: 5% 15%;
+  padding-top: 10px;
+
+}
+
+
+.button:hover {
+  color: #ffd633;
+}
+
+
+.selector {
+  display: block;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 0.9em;
+  text-align: center;
+  color:#cc2900;
+  border: 1px solid #000;
+  height: 30px;
+  padding: 5px;
+}
+
+/*=========================
+      Help!
+==========================*/
+.help {
+  margin:2% 5%;
+  text-align: center;
+
+}
+
+.help label input {
+    position:absolute;
+    left:-10px;
+}
+.help span {
+  color: #00cc00;
+  text-shadow: 2px 2px #000;
+  cursor: help;
+  font-size:2em;
+}
+.help input + p {
+    display: none;
+}
+.help input:checked + p {
+  display: block;
+  background:#1a1a1a;
+  text-align: left;
+  border: 1px solid #cc9900;
+  border-radius: 5px;
+  color:#00cc00;
+  padding: 2%;
+
+}

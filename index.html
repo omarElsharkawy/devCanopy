@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>devCanopy</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+  </head>
+  <body>
+    <header>
+
+      <!--Logo-->
+      <h1 id="logo"><a href="index.html">devCanopy</a></h1>
+      <!--Navigation-->
+      <nav>
+        <ul class="navigation">
+          <li class="selected"><a href="index.html">paraCalc</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <section>
+      <!--SubHeader-->
+      <div class="SubHeader">
+        <h2>ParaCalc</h2>
+        <p>
+          Is an app
+           that can help you design
+          the best fitting parachute
+          for your project.
+        </p>
+        <em>Press the question mark to get more information.</em>
+
+      </div>
+      <br>
+      <!--STEP1-->
+      <div class="box">
+        <div class = "calc">
+          <h3>Step 1: Descent Velocity Based on Impact</h3>
+          <div>Free Fall Height (m): <input type="float" id="height" size="4" value=0.5 ></div>
+          <div>Max-descent Velocity (m/s): <input type="float" class="output" id="impact" size="4" value="N/A" ></div>
+        </div>
+        <div class = "help">
+         <label>
+           <span>?</span>
+            <input type="checkbox" value="1">
+              <p>1st step is figuring how fast you want your parachute to descend.
+                 It's advised to have a descent speed faster than 3 m/s (Drifts less with side wind) and less than the
+                 max-impact velocity which is the maximum speed your payload can safely hit the ground.
+                 Through testing (also based on the structure/material of your payload) you can assume what height your payload can drop and hit the ground safely.
+                 input the height in the "Free fall height" and press calculate the result will appear in
+               </p>
+         </label>
+        </div>
+
+        <a href="javascript:Impact();" >
+          <div class="button" id="button2">
+            <span>Calculate<span>
+          </div>
+       </a>
+      </div>
+      <!--STEP2-->
+      <div class="box">
+        <h3>Step 2: Choosing Canopy Shape</h3>
+        <img id="myImg"></img>
+
+        <div class = "help">
+         <label>
+           <span>?</span>
+            <input type="checkbox" value="1">
+              <p> The canopy is the part of the parachute made of fabric that inflates and creates drag.
+                Canopies come in many shapes and  vary in both performance and efficiency.
+
+                Use the selector box to choose your Canopy.
+              </p>
+         </label>
+        </div>
+
+        <select onchange="selector()" id="canopy" class="selector">
+          <option type="float" value=0.75 >Hemisphere</option>
+          <option type="float" value=0.92 >Elliptic 0.707</option>
+        <select>
+
+      </div>
+      <!--STEP3-->
+      <div class="box">
+        <div class = "calc">
+          <h3>Step 3: Calculating Parachute Surface Area | Diameter</h3>
+          <div>Payload Weight (Kg): <input type="float" id="weight" size="4" value=0.5 ></div>
+          <div>Air Density &rho; (Kg/m&sup3;): <input type="float" id="rho" size="4" value=1.225 ></div>
+          <div>Drag Coefficient: <input type="float" id="cd" size="4" value="0.75" ></div>
+          <div>Spill-Hole Radius Compared to Parachute Radius (0%~90%):
+            <input type="number" id="spill" min="0" max="90" size="4" value="0" >%
+          </div>
+          <div>Spill-Hole Diameter (cm): <input type="float" class="output" id="spillDia" size="4" value="N/A"></div>
+          <div>Descent Velocity (m/s): <input type="float" id="velocity" size="4" value=3.0 ></div>
+          <div>Parachute Surface Area (m^2): <input type="float" class="output" id="area" size="4" value="S/A" ></div>
+          <div>
+          Parachute Diameter (cm): <input type="float" class="output" id="diameter" size="4" value="Dia.">
+             (in): <input type="float" class="output" id="diameterIn" size="4" value="Dia.">
+          </div>
+
+          <div class = "help">
+           <label>
+             <span>?</span>
+              <input type="checkbox" value="1">
+                <p>The 1st step of designing a parachute is by picking the best descend speed.
+                  This can be achieved by using ...
+                </p>
+           </label>
+          </div>
+
+        </div>
+          <a href="javascript:Diameter();">
+            <div class="button">
+              <span>Calculate<span>
+            </div>
+          </a>
+        </div>
+        <!--STEP4-->
+        <div class="box" style="margin-bottom: 10%;">
+          <div class = "calc">
+          <h3>Step 4: Produce Panels(Gores) Plan</h3>
+           <div style="text-align:center;">Number of Panels: <input type="float" id="no_gores" size="4" value="8" ></div>
+         </div>
+
+         <div class = "help">
+          <label>
+            <span>?</span>
+             <input type="checkbox" value="1">
+               <p>The 1st step of designing a parachute is by picking the best descend speed.
+                 This can be achieved by using ...
+               </p>
+          </label>
+         </div>
+
+           <a href="javascript:gore();" >
+             <div class="button" id="button2">
+               <span>Export Gore Plan<span>
+             </div>
+           </a>
+           <canvas id="myCanvas" style="background:#bfbfbf;">Your Browser Doesn't Support Canvas</canvas>
+           <table id="myTable">
+           </table>
+           <a href="javascript:printCanvas();" >
+             <div class="button" id="button2">
+               <span>Print<span>
+             </div>
+           </a>
+         </div>
+         <!--About Me-->
+         <div class="SubHeader" id = "about">
+           <img src="img/me.JPG" class = "profile-pic">
+           <div>
+             <h2>About</h2>
+             <p> Hi, I'm Omar. I'm an Engineering student, model parachute builder, and
+                a web developer.
+                 This website is my prototype of both parachute and web designing project.
+             </p>
+           </div>
+           <br>
+         </div>
+         <!--Contact-->
+         <div id = "contact">
+           <div>
+             <a href="https://www.linkedin.com/in/omar-elsharkawy-6a636959">
+               <img src="img/LinkedIn.png" alt="LinkedIn">
+             </a>
+             <a href="https://github.com/omarElsharkawy">
+               <img src="img/Github.png" alt="GitHub">
+             </a>
+          </div>
+         </div>
+
+    </section>
+
+    <footer class="SubHeader">
+      <p>&copy; 2015 devCanopy </p>
+      <br>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+  </body>
+</html>
