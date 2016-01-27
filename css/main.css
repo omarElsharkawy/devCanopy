@@ -35,7 +35,7 @@ header {
 }
 
 
-header a:visited, a:active {
+header a,header a:visited,header a:active {
     color: #fff;
 }
 
