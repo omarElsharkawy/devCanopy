@@ -284,10 +284,10 @@ function printCanvas()
     windowContent += '<html>'
     windowContent += '<head><title>ParaCalc</title></head>';
     windowContent += '<body>'
+    windowContent += '<img src="' + dataUrl + '">';
     windowContent += '<strong style="color:red;">'+table.outerHTML+'</strong>';
     windowContent += '<p>'+'Diameter: '+diameter+' cm |'+'  Surface Area: '+area+' m^2'+'</p>';
     windowContent += '<p>'+'Spill-Hole Diameter: '+spillDia+' cm |'+'  Descent Velocity: '+velocity+'m/s'+'</p>' ;
-    windowContent += '<img src="' + dataUrl + '">';
     windowContent += '</body>'
     windowContent += '</html>'
 
