@@ -121,16 +121,16 @@ header a:visited {
 
 #myTable {
   background: #000;
-  margin: 2% 5%;
-  max-width: 90%;
+  margin: 2% 1%;
 }
 
-#myTable td {
+#myTable tr {
   background: #fff;
   text-align: center;
-  font-size: 1em;
+  padding:0;
+  margin:0;
   color:#cc0000;
-  padding: 3px;
+  width:50%;
 }
 /*Canvases*/
 #myCanvas {

@@ -76,7 +76,7 @@
               <p> The canopy is the part of the parachute made of fabric that inflates and creates drag.
                 Canopies come in many shapes and  vary in both performance and efficiency.
 
-                Use the selector box to choose your Canopy.
+                Use the selector box to choose your Canopy shape (Hemisphere, Elliptical, etc.).
               </p>
          </label>
         </div>
@@ -109,8 +109,13 @@
            <label>
              <span>?</span>
               <input type="checkbox" value="1">
-                <p>The 1st step of designing a parachute is by picking the best descend speed.
-                  This can be achieved by using ...
+                <p>In this step input the weight of your payload and the descent speed you desided based on the previous steps.
+                  A Spill-Hole is a hole cut out in the top of the parachute it insure a more stable parachute.
+                  It's advised to input a 10% spill-Hole and up for a more stable parachute.
+                  The bigger the spill-Hole the more stable but the less drag the parachute will produce and the bigger the parachute area calculated.
+                  After changing all the inputs press calculate to get your designed parachute diameter and surface area.
+                  At this step you can go and check different model parachute shops. pick a parachute based on the sizing provided by ParaCalc.
+                  If you are interested in building your own model parachute go to the next step.
                 </p>
            </label>
           </div>
@@ -133,8 +138,10 @@
           <label>
             <span>?</span>
              <input type="checkbox" value="1">
-               <p>The 1st step of designing a parachute is by picking the best descend speed.
-                 This can be achieved by using ...
+               <p>To build a 3D shape (in our case the parachute canopy) you need to break that shape to panels (Gores).
+                 more panels means better performing canopy.
+                 after changing the number of Gores press Export Gore Plan. You now have a blueprint for a single gore with dimensions.
+                 Next thing is press print if you want to keep a copy of your blueprint. 
                </p>
           </label>
          </div>
@@ -145,8 +152,10 @@
              </div>
            </a>
            <canvas id="myCanvas" style="background:#bfbfbf;">Your Browser Doesn't Support Canvas</canvas>
-           <table id="myTable">
+
+           <table id="myTable" style="width: 100% !important;">
            </table>
+
            <a href="javascript:printCanvas();" >
              <div class="button" id="button2">
                <span>Print<span>
