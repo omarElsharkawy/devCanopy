@@ -9,20 +9,8 @@ function Impact() {
   var h = document.getElementById("height").value;
   document.getElementById("impact").value = m.round(m.sqrt(2*9.81*h)*100)/100;
 }
-//Table
 
-var row1 =
-document.getElementById("myTable").insertRow(0);
-var row2 =
-document.getElementById("myTable").insertRow(1);
-
-function table(a,b) {
-var cell1 = row1.insertCell();
-var cell2 = row2.insertCell();
-cell1.innerHTML = a;
-cell2.innerHTML = b;
-}
-//Canopy Selector
+// Canopy Selector
 
 function selector() {
   document.getElementById("cd").value = document.getElementById("canopy").value;
@@ -74,6 +62,20 @@ function gore() {
 ================================*/
 
 var hemi = function(D,n){
+//--Table--//
+var rows = document.getElementById("myTable").getElementsByTagName("tr").length;
+console.log("NoOfROW"+rows);
+if (rows > 0) {
+  document.getElementById("myTable").deleteRow(0);
+  document.getElementById("myTable").deleteRow(0);
+}
+var row1 =
+document.getElementById("myTable").insertRow();
+var row2 =
+document.getElementById("myTable").insertRow();
+row1.insertCell().innerHTML="Y";
+row2.insertCell().innerHTML="X";
+//----end----//
 
 var r = D*10/2; //Hemisphere radius.
 var j = 0; //counter
@@ -130,11 +132,16 @@ for (var i = 0; i <= m.PI/2;i+=m.PI/10) {
   var y = xa - (i*r);
   var X = m.round(x-ya);
   var Y = -m.round(y-xa);
+  //table
+  var cell1 = row1.insertCell();
+  var cell2 = row2.insertCell();
+  cell1.innerHTML = Y/10;
+  cell2.innerHTML = X/10;
   ctx.lineTo(x,y);
   ctx.fillText("x:"+X/10+" cm",x+15,y);
   ctx.fillText("y:"+Y/10+" cm",x+15,y-15);
   ctx.fillRect(x-5,y-5,10,10);
-  table(X/10,Y/10);
+
   console.log( j + "|" + m.round(i*100)/100 + "|" + m.round(x)/10 + "|" + m.round(y)/10);
 }
 for (var i = m.PI/2-m.PI/10; i >= 0;i-=m.PI/10) {
@@ -143,12 +150,13 @@ for (var i = m.PI/2-m.PI/10; i >= 0;i-=m.PI/10) {
   var y = xa - (i*r);
   var X = m.round(x-ya);
   var Y = -m.round(y-xa);
+  ctx.lineTo(x,y);
   ctx.fillText("x:"+X/10+" cm",x+10,y);
   ctx.fillText("y:"+Y/10+" cm",x+10,y-15);
   ctx.fillRect(x-5,y-5,10,10);
-  ctx.lineTo(x,y);
-  table(X/10,Y/10);
+
   console.log( j + "|" + m.round(i*100)/100 + "|" + m.round(x) + "|" + m.round(y));
+
 }
 ctx.lineTo(ya+r*m.PI/n,xa);
 ctx.strokeStyle = "blue";
@@ -161,6 +169,20 @@ ctx.closePath();
         0.707 Elliptic
 ================================*/
 var elli = function(D,n) {
+  //--Table--//
+  var rows = document.getElementById("myTable").getElementsByTagName("tr").length;
+  console.log("NoOfROW"+rows);
+  if (rows > 0) {
+    document.getElementById("myTable").deleteRow(0);
+    document.getElementById("myTable").deleteRow(0);
+  }
+  var row1 =
+  document.getElementById("myTable").insertRow();
+  var row2 =
+  document.getElementById("myTable").insertRow();
+  row1.insertCell().innerHTML="Y";
+  row2.insertCell().innerHTML="X";
+  //----end----//
   var j = 0; //counter
   var a = D*10/2; //a radius
   var b = 0.707*a; //b radius
@@ -174,9 +196,6 @@ var elli = function(D,n) {
   var ctx = c.getContext("2d");
 
   console.log(" # | Rad | x | y ");
-  // ctx.beginPath();
-  // ctx.clearRect(0, 0, xc, yc);
-  // ctx.closePath();
 
 //Background
   ctx.beginPath();
@@ -220,8 +239,15 @@ var elli = function(D,n) {
     j++
     var x = ya + (m.cos(i)*a*m.PI/n);
     var y = xa - i*m.sqrt((m.pow(a,2)+m.pow(b,2))/2);
-    ctx.fillText("x:"+m.round(x-ya)/10+" cm",x+15,y);
-    ctx.fillText("y:"+-m.round(y-xa)/10+" cm",x+15,y-15);
+    var X = m.round(x-ya);
+    var Y = -m.round(y-xa);
+    //table
+    var cell1 = row1.insertCell();
+    var cell2 = row2.insertCell();
+    cell1.innerHTML = Y/10;
+    cell2.innerHTML = X/10;
+    ctx.fillText("x:"+X/10+" cm",x+15,y);
+    ctx.fillText("y:"+Y/10+" cm",x+15,y-15);
     ctx.fillRect(x-5,y-5,10,10);
     ctx.lineTo(x,y);
     console.log( j + "|" + m.round(i*100)/100 + "|" + m.round(x) + "|" + m.round(y));
@@ -230,9 +256,11 @@ var elli = function(D,n) {
     j++
     var x = ya - (m.cos(i)*a*m.PI/n);
     var y = xa - i*m.sqrt((m.pow(a,2)+m.pow(b,2))/2);
+    var X = m.round(x-ya);
+    var Y = -m.round(y-xa);
     ctx.lineTo(x,y);
-    ctx.fillText("x:"+m.round(x-ya)/10+" cm",x+10,y);
-    ctx.fillText("y:"+-m.round(y-xa)/10+" cm",x+10,y-15);
+    ctx.fillText("x:"+X/10+" cm",x+10,y);
+    ctx.fillText("y:"+Y/10+" cm",x+10,y-15);
     ctx.fillRect(x-5,y-5,10,10);
     console.log( j + "|" + m.round(i*100)/100 + "|" + m.round(x) + "|" + m.round(y));
   }
@@ -247,18 +275,26 @@ var elli = function(D,n) {
 function printCanvas()
 {
     var dataUrl = document.getElementById('myCanvas').toDataURL(); //attempt to save base64 string to server using this var
+    var table = document.getElementById('myTable');
+    var diameter = document.getElementById('diameter').value;
+    var area = document.getElementById('area').value;
+    var spillDia = document.getElementById('spillDia').value;
+    var velocity = document.getElementById('velocity').value;
     var windowContent = '<!DOCTYPE html>';
     windowContent += '<html>'
-    windowContent += '<head><title>Print canvas</title></head>';
+    windowContent += '<head><title>ParaCalc</title></head>';
     windowContent += '<body>'
+    windowContent += '<strong style="color:red;">'+table.outerHTML+'</strong>';
+    windowContent += '<p>'+'Diameter: '+diameter+' cm |'+'  Surface Area: '+area+' m^2'+'</p>';
+    windowContent += '<p>'+'Spill-Hole Diameter: '+spillDia+' cm |'+'  Descent Velocity: '+velocity+'m/s'+'</p>' ;
     windowContent += '<img src="' + dataUrl + '">';
-    windowContent += '</body>';
-    windowContent += '</html>';
-    var printWin = window.open('','','width=340,height=260');
+    windowContent += '</body>'
+    windowContent += '</html>'
+
+    var printWin = window.open('','','width=600,height=800');
     printWin.document.open();
     printWin.document.write(windowContent);
     printWin.document.close();
     printWin.focus();
     printWin.print();
-    printWin.close();
 }
